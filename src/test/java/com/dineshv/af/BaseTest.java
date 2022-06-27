@@ -1,8 +1,8 @@
-package com.dineshv.af.library;
+package com.dineshv.af;
 
+import com.dineshv.af.library.webui.DriverFactory;
 import com.dineshv.af.library.webui.Browser;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 

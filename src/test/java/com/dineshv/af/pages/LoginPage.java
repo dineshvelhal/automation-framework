@@ -1,7 +1,6 @@
 package com.dineshv.af.pages;
 
-import com.dineshv.af.library.BasePage;
-import lombok.extern.java.Log;
+import com.dineshv.af.BasePage;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

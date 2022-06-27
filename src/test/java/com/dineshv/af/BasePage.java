@@ -1,4 +1,4 @@
-package com.dineshv.af.library;
+package com.dineshv.af;
 
 import com.dineshv.af.library.webui.WebLibrary;
 import lombok.extern.log4j.Log4j2;

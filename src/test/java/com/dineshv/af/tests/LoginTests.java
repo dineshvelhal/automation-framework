@@ -5,7 +5,7 @@ import static org.testng.Assert.assertEquals;
 import com.dineshv.af.config.ApplicationConfig;
 import org.testng.annotations.Test;
 
-import com.dineshv.af.library.BaseTest;
+import com.dineshv.af.BaseTest;
 import com.dineshv.af.pages.LoginPage;
 
 public class LoginTests extends BaseTest{

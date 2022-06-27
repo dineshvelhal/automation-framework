@@ -1,4 +1,4 @@
-package com.dineshv.af.library;
+package com.dineshv.af.library.webui;
 
 import com.dineshv.af.library.webui.Browser;
 import lombok.AccessLevel;
