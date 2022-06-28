@@ -15,6 +15,8 @@
 		<log4j.version>2.17.2</log4j.version>
 		<allure.version></allure.version>
 		<webdrivermanager.version>5.2.0</webdrivermanager.version>
+		<allure.testng.version>2.18.1</allure.testng.version>
+		<aspectj.version>1.9.9.1</aspectj.version>
 
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.source>11</maven.compiler.source>
@@ -55,6 +57,13 @@
 			<artifactId>webdrivermanager</artifactId>
 			<version>${webdrivermanager.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-testng</artifactId>
+			<version>${allure.testng.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 
 	</dependencies>
 
@@ -68,7 +77,22 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
+					<argLine>
+						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+					</argLine>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>${aspectj.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>io.qameta.allure</groupId>
+				<artifactId>allure-maven</artifactId>
+				<version>2.10.0</version>
 			</plugin>
 		</plugins>
 	</build>
