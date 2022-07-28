@@ -9,26 +9,15 @@ import org.testng.annotations.BeforeMethod;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
-	protected WebDriver driver;
+	// protected WebDriver driver;
 
 	@BeforeMethod
 	public void setup() throws Exception {
-		WebDriverManager.chromedriver().setup();
-		WebDriverManager.firefoxdriver().setup();
-
-		driver = DriverFactory.builder()
-				.browser(Browser.CHROME)
-				.maximizeWindow(false)
-				.build()
-				.initialize();
+		Thread.sleep(2000);
 	}
 
 	@AfterMethod
 	public void tearDown() throws InterruptedException {
-		Thread.sleep(1000);
-
-		if (driver != null) {
-			driver.quit();
-		}
+		Thread.sleep(2000);
 	}
 }
