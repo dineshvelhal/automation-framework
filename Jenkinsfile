@@ -80,15 +80,7 @@ pipeline {
                     steps {
                         //sh 'java -jar /magix/MAGiX.jar -u TestArtefacts -testcase "varCreation.csv[split],FrameHandling.csv[split]" -PassPercentage 100 -p'
                         sh 'echo Regression'
-                        sleep 19
-                        publishHTML target: [
-                            allowMissing: false,
-                            alwaysLinkToLastBuild: false,
-                            keepAll: true,
-                            reportDir: 'regression_reports',
-                            reportFiles: 'index.html',
-                            reportName: 'MAGiX Regression Tests'
-                        ]
+                        sleep 10
                     }
     	        }
             }
