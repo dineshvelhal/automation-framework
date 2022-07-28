@@ -107,11 +107,21 @@ pipeline {
                 sh 'echo deploying...'
             }
     	}
-        stage('JMeter Perf Tests') {
-            steps {
-                sh 'echo deploying...'
-            }
-    	}
+    	  stage('Trial-Env-Tests') {
+           parallel {
+              stage('JMeter Perf Tests') {
+                  steps {
+                      sh 'echo Perf tests...'
+                  }
+              }
+              stage('Integration Tests') {
+                  steps {
+                      sh 'echo Integration Tests...'
+                  }
+              }
+           }
+        }
+
         stage('Cleanup Trial') {
             steps {
                 echo "Cleaning up the resources..."
