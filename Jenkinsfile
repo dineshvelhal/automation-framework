@@ -11,13 +11,13 @@ pipeline {
                 stage('Code Quality') {
                     steps {
                         echo 'Running Code Quality checks...'
-                        sleep 3
+                        sleep 31
                     }
                 }
                 stage('Unit Tests') {
                     steps {
                         echo 'Running unit tests...'
-                        sleep 3
+                        sleep 13
                     }
                 }
             }
@@ -27,13 +27,13 @@ pipeline {
                 stage('DB') {
                     steps {
                         echo 'DB Provisioning...'
-                        sleep 3
+                        sleep 15
                     }
                 }
                 stage('Wiremock SV') {
                     steps {
                         echo 'Wiremock provisioning...'
-                        sleep 3
+                        sleep 8
                     }
                 }
             }
@@ -41,10 +41,10 @@ pipeline {
         stage('Deploy to CI Env.') {
             steps {
                 echo "Deploying to CI Env..."
-                sleep 3
+                sleep 43
             }
         }
-        stage('MAGiX Tests') {
+        stage('Functional Tests') {
             parallel {
                 stage('Acceptance') {
                     agent {
@@ -81,7 +81,7 @@ pipeline {
                     steps {
                         //sh 'java -jar /magix/MAGiX.jar -u TestArtefacts -testcase "varCreation.csv[split],FrameHandling.csv[split]" -PassPercentage 100 -p'
                         sh 'echo Regression'
-                        sleep 10
+                        sleep 11
                     }
     	        }
             }
@@ -89,7 +89,7 @@ pipeline {
     	stage('Cleanup CI') {
             steps {
                 echo "Cleaning up the resources..."
-                sleep 3
+                sleep 7
             }
         }
         stage('Provision to Trial Env.') {
@@ -97,7 +97,7 @@ pipeline {
                 stage('JMeter') {
                     steps {
                         echo 'JMeter provisioning...'
-                        sleep 3
+                        sleep 16
                     }
                 }
             }
@@ -105,6 +105,7 @@ pipeline {
         stage('Deploy to Trial Env.') {
             steps {
                 sh 'echo deploying...'
+                sleep 7
             }
     	}
     	  stage('Trial-Env-Tests') {
@@ -112,11 +113,13 @@ pipeline {
               stage('JMeter Perf Tests') {
                   steps {
                       sh 'echo Perf tests...'
+                      sleep 11
                   }
               }
               stage('Integration Tests') {
                   steps {
                       sh 'echo Integration Tests...'
+                      sleep 11
                   }
               }
            }
@@ -125,7 +128,7 @@ pipeline {
         stage('Cleanup Trial') {
             steps {
                 echo "Cleaning up the resources..."
-                sleep 3
+                sleep 23
             }
         }
     }
