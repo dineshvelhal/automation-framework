@@ -58,6 +58,16 @@ pipeline {
                         // sh 'java -jar /magix/MAGiX.jar -u TestArtefacts -testcase "checkbox.csv[split],varCreation.csv[split],FrameHandling.csv[split]" -PassPercentage 100 -p'
                         // sh 'cd /magix; java -jar MAGiX.jar -u TestArtefacts/ -e EnvironmentDetails.properties -testcase "checkbox.csv[split]" -PassPercentage 100 -p'
                         sh 'mvn test'
+
+                        script {
+                            allure([
+                                 includeProperties: false,
+                                 jdk: '',
+                                 properties: [],
+                                 reportBuildPolicy: 'ALWAYS',
+                                 results: [[path: 'target/allure-results']]
+                            ])
+                        }
                     }
     	        }
                 stage('Regression') {
