@@ -58,15 +58,6 @@ pipeline {
                         // sh 'java -jar /magix/MAGiX.jar -u TestArtefacts -testcase "checkbox.csv[split],varCreation.csv[split],FrameHandling.csv[split]" -PassPercentage 100 -p'
                         // sh 'cd /magix; java -jar MAGiX.jar -u TestArtefacts/ -e EnvironmentDetails.properties -testcase "checkbox.csv[split]" -PassPercentage 100 -p'
                         sh 'mvn test'
-                        // sleep 13
-                        publishHTML target: [
-                            allowMissing: false,
-                            alwaysLinkToLastBuild: false,
-                            keepAll: true,
-                            reportDir: 'acceptance_reports',
-                            reportFiles: 'index.html',
-                            reportName: 'MAGiX Acceptance Tests'
-                        ]
                     }
     	        }
                 stage('Regression') {
